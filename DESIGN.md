@@ -1,288 +1,416 @@
----
-name: "Rajajoon"
-description: "Hele ja jahedatooniline spordiobjektide kasutajaliides, mille läbiv 3 px sinine rajajoon väljendab liikumist ja teekonda."
-colors:
-  bg: "#F4F7F8"
-  surface: "#FFFFFF"
-  ink: "#173B57"
-  accent: "#2878FF"
-  support:
-    accent_hover: "#1765E8"
-    accent_active: "#0E50C7"
-    accent_soft: "#E8F3FF"
-    accent_light: "#A9D8FF"
-    border: "#D8E0E5"
-    muted: "#617485"
-    disabled_bg: "#EDF1F3"
-    disabled_text: "#8C9AA5"
-    error: "#C53B45"
-    error_soft: "#FFF0F1"
-    success: "#187454"
-    success_soft: "#EAF7F1"
-    warning: "#8B5A10"
-    warning_soft: "#FFF7E5"
-typography:
-  heading:
-    family: "Manrope, Arial, sans-serif"
-    weight: 600
-    sizes: ["34px", "26px", "20px"]
-    line_height: 1.2
-  body:
-    family: "Inter, Arial, sans-serif"
-    weights: [400, 500, 600]
-    sizes: ["20px", "18px", "16px", "14px"]
-    line_height: 1.6
-spacing:
-  space_0: "0px"
-  space_1: "4px"
-  space_2: "8px"
-  space_3: "12px"
-  space_4: "16px"
-  space_5: "20px"
-  space_6: "24px"
-  space_8: "32px"
-  space_10: "40px"
-  space_12: "48px"
-  space_16: "64px"
-rounded:
-  small: "6px"
-  medium: "10px"
-  pill: "999px"
-components:
-  - "color-swatch"
-  - "type-sample"
-  - "primary-button"
-  - "secondary-button"
-  - "text-input"
-  - "card"
-  - "tag"
-  - "navigation"
-  - "notice"
-  - "route-line"
-dials:
-  variance: "1 accent hue, 3 radii, 6 type sizes"
-  density: "44px minimum control height, 352px input-column minimum, 16px base spacing, 32px desktop section padding, 16px mobile section padding"
-  motion: "150ms ease; 0.01ms with prefers-reduced-motion"
----
+# Rajajoon — disainisüsteem
 
-# Overview
+## 1. Eesmärk
 
-Rajajoon on Tallinna ja Harjumaa spordiobjektide jaoks loodud hele kasutajaliidese süsteem. Põhitaust on `#F4F7F8`, sisupinnad on `#FFFFFF` ja põhitekst on `#173B57`. Ainus põhitooni aktsent on `#2878FF`.
+See dokument kirjeldab veebilehe **„Treeningpaigad rullitajatele”** visuaalset keelt ja kasutajaliidese reegleid. Leht aitab leida rulluisutajatele sobivaid treeningpaiku Tallinnas ja Harjumaal: spordisaale, võimlaid, jõusaale, aeroobikasaale, välialasid ja muid toetavaid treeningukohti.
 
-Süsteemi iseloomustav motiiv on üksik looklev sinine joon. Joone laius on `3px` (`0.1875rem`), otsad on ümardatud ning joon kuvatakse päises, `80px` kõrguses rajavöös ja sektsioonide juures. Dekoratiivsed SVG-jooned kasutavad `aria-hidden="true"`.
+Disain peab mõjuma:
 
-Kõik värvid, fondipered, kirjasuurused, vahed ja nurgaraadiused on määratud `:root` CSS-muutujatena.
+- õhulise, aktiivse ja usaldusväärsena;
+- sportliku, kuid mitte agressiivse ega võistlusliku kujundusena;
+- selge ja inimliku veebilehena, mitte geneerilise AI-mallina;
+- fotokesksena, sest päris treeningpaigad ja nende kasutuskontekst on sisu kõige olulisem osa.
 
-# Colors
+Kujunduse läbiv identiteedielement on vabalt kulgev **sinine rajajoon**, mis meenutab uisutaja liikumisteekonda.
 
-## Põhivärvid
+## 2. Disaini põhimõtted
 
-| Token | Väärtus | Kasutus |
-| --- | --- | --- |
-| `--color-canvas` | `#F4F7F8` | Lehe põhitaust |
-| `--color-surface` | `#FFFFFF` | Päis, sektsioonid, kaardid ja väljad |
-| `--color-ink` | `#173B57` | Põhitekst ja tugevad detailid |
-| `--color-primary` | `#2878FF` | Põhinupp, aktiivne olek, fookus ja rajajoon |
-| `--color-primary-hover` | `#1765E8` | Põhinupu hõljutusolek |
-| `--color-primary-active` | `#0E50C7` | Põhinupu aktiivne olek |
-| `--color-primary-soft` | `#E8F3FF` | Hele aktsenttaust |
-| `--color-accent-soft` | `#A9D8FF` | Teisese nupu aktiivne taust ja sildi piir |
-| `--color-border` | `#D8E0E5` | Piirjooned |
-| `--color-muted` | `#617485` | Abitekst ja metaandmed |
+### 2.1 Sisu enne dekoratsiooni
 
-## Olekute tugivärvid
+Fotod, objekti nimi, asukoht, tüüp ja praktilised omadused peavad olema kiiresti loetavad. Dekoratiivne rajajoon ei tohi läbida teksti, nuppe, filtrite nimetusi ega muid interaktiivseid elemente.
+
+### 2.2 Päris ja usaldusväärne
+
+Kasuta eelistatult päris spordiobjektide kvaliteetseid fotosid. Väldi ühtlaseid AI-illustratsioone, liigset klaasiefekti, neoonhelendust, suuri värvilisi gradiente ja ebavajalikke 3D-elemente.
+
+### 2.3 Selge hierarhia
+
+Ühel vaatel peab olema üks selge põhifookus. Pealkirjad on kompaktsed ja tugevad, kirjeldav tekst rahulik ning tegevused lihtsalt eristatavad.
+
+### 2.4 Mõõdukas pehmus
+
+Nurgad on kergelt ümardatud, kuid mitte ümarate „mullide” kujul. Suured pinnad on valged, lehe taust väga hele hallikassinine ning varje kasutatakse tagasihoidlikult.
+
+### 2.5 Liikumise tunne
+
+Rajajoon, fotod ja väikesed hõljutusanimatsioonid annavad lehele liikumise. Animatsioonid peavad olema lühikesed ja rahulikud ning arvestama kasutaja `prefers-reduced-motion` seadistust.
+
+## 3. Brändielemendid
+
+### 3.1 Sinine rajajoon
+
+Rajajoon on orgaaniline, vabakäeline ja pehmelt kaarduv. See võib ilmuda:
+
+- päises;
+- hero-foto kohal;
+- helesinises vahevöös;
+- sektsiooni väikese dekoratiivse detailina.
+
+Reeglid:
+
+- joone põhipaksus on `0.1875rem` ehk ligikaudu 3 px;
+- hero-alal võib joon olla veidi paksem, ligikaudu `0.32rem`;
+- joone otsad on ümarad (`stroke-linecap: round`);
+- joon ei tohi varjata sisu ega vähendada teksti kontrasti;
+- joone vasak osa kasutab põhisinist `#2878FF`;
+- paremal, uisutaja poole liikudes, muutub joon väga heledaks, peaaegu valgeks;
+- hajumine peab olema sujuv, mitte järsu värviastmega;
+- heledal ühevärvilisel taustal võib kasutada ka põhisinist joont väiksema läbipaistvusega.
+
+Soovituslik SVG-gradient:
+
+```html
+<linearGradient id="route-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+  <stop offset="0%" stop-color="#2878FF" />
+  <stop offset="58%" stop-color="#A9D8FF" />
+  <stop offset="100%" stop-color="#F7FCFF" />
+</linearGradient>
+```
+
+### 3.2 Fotograafia
+
+Fotod peavad olema heledad, loomulikud ja piisavalt kvaliteetsed. Eelistada vaateid, mis näitavad ruumi tegelikku kasutusvõimalust, põrandat ja mõõtkava.
+
+Hero-foto puhul:
+
+- tekst jääb vasakule heledale ja kontrastsele alale;
+- uisutaja jääb paremale;
+- pildi kadreering peab näitama nii kleiti kui ka uiske;
+- ära kasuta kärbet, mis lõikab ära jalad, uisud või olulise kehaosa;
+- vali `background-position` iga foto järgi, mitte ära eelda alati täpset keskpunkti;
+- kui `cover` kärbib sportlase ära, kasuta sobivamat paigutust, näiteks eraldi `<img>` elementi koos `object-fit: contain`, või suuremat hero-ala;
+- teksti loetavuse jaoks kasuta vasakult valget läbipaistvat kihti, mis hajub foto poole.
+
+Objektikaartide fotod kasutavad `object-fit: cover`, sest neis on oluline ühtlane kaardirütm. Pildi soovituslik kuvasuhe on ligikaudu 16 : 9.
+
+## 4. Disainitokenid
+
+### 4.1 Värvid
 
 | Token | Väärtus | Kasutus |
-| --- | --- | --- |
-| `--color-disabled-bg` | `#EDF1F3` | Keelatud elemendi taust |
-| `--color-disabled-text` | `#8C9AA5` | Keelatud elemendi tekst |
-| `--color-error` | `#C53B45` | Viga |
-| `--color-error-soft` | `#FFF0F1` | Vea taust |
-| `--color-success` | `#187454` | Õnnestumine |
-| `--color-success-soft` | `#EAF7F1` | Õnnestumise taust |
-| `--color-warning` | `#8B5A10` | Hoiatus |
-| `--color-warning-soft` | `#FFF7E5` | Hoiatuse taust |
-| `--color-focus` | `#2878FF` | Fookuse piir |
-| `--color-overlay` | `rgba(23, 59, 87, 0.08)` | Varju toon |
+|---|---:|---|
+| `--color-ink` | `#173B57` | põhitekst, pealkirjad ja tumedad ikoonid |
+| `--color-primary` | `#2878FF` | põhitegevused, valitud olekud ja rajajoon |
+| `--color-primary-hover` | `#1765E8` | põhinupu hover |
+| `--color-primary-active` | `#0E50C7` | aktiivne olek ja tugevam sinine tekst |
+| `--color-primary-soft` | `#E8F3FF` | filtrid, infosõnumid ja pehmed taustad |
+| `--color-accent-soft` | `#A9D8FF` | helesinine aktsent ja sekundaarse nupu aktiivne olek |
+| `--color-canvas` | `#F4F7F8` | lehe üldtaust |
+| `--color-surface` | `#FFFFFF` | kaardid, sektsioonid ja muud pinnad |
+| `--color-border` | `#D8E0E5` | neutraalsed piirjooned |
+| `--color-muted` | `#617485` | abitekst ja teisene info |
+| `--color-disabled-bg` | `#EDF1F3` | keelatud elemendi taust |
+| `--color-disabled-text` | `#8C9AA5` | keelatud elemendi tekst |
+| `--color-error` | `#C53B45` | vead |
+| `--color-error-soft` | `#FFF0F1` | vea taust |
+| `--color-success` | `#187454` | õnnestumine |
+| `--color-success-soft` | `#EAF7F1` | õnnestumise taust |
+| `--color-warning` | `#8B5A10` | hoiatus |
+| `--color-warning-soft` | `#FFF7E5` | hoiatuse taust |
 
-Fookuserõngas on `0 0 0 3px rgba(40, 120, 255, 0.24)`. Keelatud elementide läbipaistvus on `0.62`. Rajajoone põhiosa läbipaistvus on `0.9` ja sektsioonide õrna joone läbipaistvus `0.22`.
+Kaardi lisavärvid:
 
-# Typography
+- vesi: `#CFEAFF`;
+- maa: `#E9F4E8`;
+- kaardi põhitaust: `#DFF1E6`;
+- teed: valge.
 
-Google Fontsist laaditakse `Manrope` kaaluga `600` ja `Inter` kaaludega `400`, `500` ja `600`. Varufont on mõlemal `Arial`, mille järel kasutatakse üldist `sans-serif` perekonda.
+### 4.2 Tüpograafia
 
-| Roll | Font | Kaal | Suurus | Reavahe |
-| --- | --- | ---: | ---: | ---: |
-| Lehe pealkiri / suur näidis | Manrope | 600 | `34px` | `1.2` |
-| Sektsiooni pealkiri | Manrope | 600 | `26px` | `1.2` |
-| Kaardi pealkiri | Manrope | 600 | `20px` | `1.2` |
-| Juhttekst | Inter | 400 | `20px` | `1.6` |
-| Põhitekst | Inter | 400 | `18px` | `1.6` |
-| Väike tekst | Inter | 400 | `16px` | `1.6` |
-| Silt ja metaandmed | Inter | 600 | `14px` | `1.6` |
+Pealkirjad kasutavad **Manrope** kirjatüüpi kaaluga 600. Sisu ja kasutajaliidese tekst kasutab **Inter** kirjatüüpi kaaludega 400, 500 või 600.
 
-Siltide tähevahe on `0.06em` ja tekst on suurtähtedes. Nuppude kaal on `600`; navigatsiooni ja kaardi detailteksti kaal on `500`.
+Varufondid: `Arial, sans-serif`.
 
-# Layout
+| Tase | Suurus | Reavahe | Kaal | Kasutus |
+|---|---:|---:|---:|---|
+| XS | `0.875rem` / 14 px | 1.6 | 400–600 | sildid, abitekst, metaandmed |
+| SM | `1rem` / 16 px | 1.6 | 400–600 | väike sisutekst, nupud, väljade sildid |
+| MD | `1.125rem` / 18 px | 1.6 | 400–600 | põhitekst ja kaardi pealkiri |
+| LG | `1.25rem` / 20 px | 1.2–1.6 | 400–600 | juhtlõik ja H3 |
+| XL | `1.625rem` / 26 px | 1.2 | 600 | H2 |
+| 2XL | `2.125rem` / 34 px | 1.2 | 600 | H1 ja suur pealkiri |
+| Hero | `clamp(2rem, 4vw, 3.5rem)` | 1.2 | 600 | avalehe põhisõnum |
 
-- Sisu maksimaalne laius on `1216px` (`76rem`).
-- Lehe horisontaalne välimine vahe on üle `704px` vaates mõlemal küljel `24px`, vahemikus `385–704px` mõlemal küljel `16px` ja kuni `384px` vaates mõlemal küljel `12px`.
-- Päise vertikaalne sisevahe on `32px`.
-- Põhisisu ülemine vahe on `48px` ja alumine vahe `64px`.
-- Sektsiooni sisevahe on üle `704px` vaates `32px`. Vahemikus `385–704px` on vertikaalne sisevahe `24px` ja horisontaalne sisevahe `16px`. Kuni `384px` vaates on horisontaalne sisevahe `12px`.
-- Sektsioonide alumine vahe on `48px`.
-- Paletivõrgu minimaalne veerulaius on `176px`; vahe on `16px`.
-- Komponendivõrgu minimaalne veerulaius on `208px`; vahe on `24px`.
-- Sisendväljade võrgu minimaalne veerulaius on `352px` (`22rem`); vahe on `24px`. `1216px` sisulaiuse juures mahub ühte ritta kuni kolm sisendvälja.
-- Virnaelementide vahe on `12px`; olekunäite sisemine vahe on `8px`.
-- Põhiline mobiili murdepunkt on `704px` (`44rem`) ja kitsa mobiili murdepunkt `384px` (`24rem`).
-- Juhtelemendi minimaalne kõrgus on `44px`.
-- Rajavöö kõrgus on `80px`.
+Suurtähelised abipealkirjad kasutavad `0.06em` tähevahet. Ära kasuta suurtähtedes pikki tekstilõike.
 
-Vahede skaala on `0`, `4`, `8`, `12`, `16`, `20`, `24`, `32`, `40`, `48` ja `64px`. Uusi vahesid ei lisata skaalaväliselt.
+### 4.3 Vahed
 
-## Mobile setup
+Alussamm on 4 px.
 
-| Vaate laius | Välimine külgvahe | Sektsiooni sisevahe | Põhisisu vertikaalvahe | Võrgud |
-| --- | ---: | ---: | ---: | --- |
-| `705px` ja rohkem | `24px` | `32px` | `48px 64px` | Automaatne mitmeveeruline |
-| `385–704px` | `16px` | `24px 16px` | `32px 48px` | Üks veerg |
-| `320–384px` | `12px` | `24px 12px` | `32px 48px` | Üks veerg |
+| Token | Väärtus |
+|---|---:|
+| `--space-0` | 0 |
+| `--space-1` | 4 px |
+| `--space-2` | 8 px |
+| `--space-3` | 12 px |
+| `--space-4` | 16 px |
+| `--space-5` | 20 px |
+| `--space-6` | 24 px |
+| `--space-8` | 32 px |
+| `--space-10` | 40 px |
+| `--space-12` | 48 px |
+| `--space-16` | 64 px |
 
-Kuni `704px` vaates rakenduvad järgmised reeglid:
+Kasuta ainult seda skaalat, välja arvatud väga väikesed märgiste sisemised vahed.
 
-- Päis muutub vertikaalseks, elementide vahe on `16px` ja vertikaalne sisevahe `24px`.
-- Päise metateksti `max-width` piirang eemaldatakse.
-- Rajavöö kõrgus väheneb `80px` → `64px`.
-- Sektsioonide alumine vahe väheneb `48px` → `32px`.
-- Paleti- ja komponendivõrgud kasutavad `minmax(0, 1fr)` üheveerulist paigutust.
-- Komponendivõrgu vertikaalne vahe on `32px`.
-- Navigatsioon muutub üheveeruliseks; iga link täidab `100%` laiuse ja joondub vasakule.
-- Nupud täidavad `100%` laiuse, nende horisontaalne sisevahe on `16px` ja pikk tekst murdub mitmele reale.
-- Kaardi pealkiri, kaardi tekst, teate pealkiri, teate tekst, abi- ja veatekst kasutavad `overflow-wrap: anywhere`.
-- Väli, virn, olekunäide, kaart ja teade kasutavad `min-width: 0`, et sisu ei suruks võrku vaateaknast välja.
-- Sisend kasutab `min-width: 0`; selle `18px` kirjasuurus väldib iOS-is fookustamisel automaatset suumimist.
-- Nupud ja lingid kasutavad `touch-action: manipulation`.
-- Nupu, sisendi ja navigatsioonilingi minimaalne kõrgus on `44px`.
-- Silt on `28px` kõrge ainult mitteinteraktiivse märgisena. Interaktiivse filtri puhul tuleb silt paigutada vähemalt `44px` kõrguse vajutatava ala sisse.
+### 4.4 Nurgad, piirjooned ja varjud
 
-Kuni `384px` vaates väheneb lehe külgvahe `12px`-ni, sektsiooni horisontaalne sisevahe `12px`-ni ja teate horisontaalne sisevahe `16px`-ni. Kirjasuurusi ei vähendata.
+| Token | Väärtus | Kasutus |
+|---|---:|---|
+| `--radius-sm` | 6 px | väiksed pinnad, navigeerimise lingid |
+| `--radius-md` | 10 px | nupud, väljad, kaardid ja sektsioonid |
+| `--radius-pill` | 999 px | filtrid ja sildid |
+| `--border-thin` | 1 px | tavaääris |
+| `--border-strong` | 2 px | tugev rõhutus vajadusel |
+| `--shadow-card` | `0 10px 30px rgba(23,59,87,.08)` | hover ja esiletõstetud kaart |
+| `--shadow-float` | `0 16px 40px rgba(23,59,87,.14)` | ainult selgelt hõljuv element |
 
-Kontrolli paigutust täpselt laiustel `320px`, `360px`, `390px`, `412px`, `704px` ja `705px`. Ühelgi neist laiustest ei tohi tekkida horisontaalset kerimist, lõigatud teksti ega alla `44px` vajutatavat nuppu, sisendit või navigatsioonilinki.
+Varje ei kasutata igal pinnal. Vaikimisi eraldavad pindu taust ja 1 px piirjoon.
 
-# Elevation & Depth
+### 4.5 Mõõdud ja liikumine
 
-- Tavaline piirjoon on `1px solid #D8E0E5`.
-- Tugev piirjoon on `2px`.
-- Rajajoon ja teate vasak piir on `3px`.
-- Kaardi hõljutusvari on `0 10px 30px rgba(23, 59, 87, 0.08)`.
-- Valitud kaardil on `3px` sisemine vasak vari värviga `#2878FF`.
-- Fookuserõngas on `0 0 0 3px rgba(40, 120, 255, 0.24)`.
-- Taustade hierarhia on `#F4F7F8` → `#FFFFFF` → olekupõhised heledad taustad.
+- sisu maksimaalne laius: `76rem` ehk 1216 px;
+- juhtnupu või sisendvälja minimaalne kõrgus: `2.75rem` ehk 44 px;
+- tavapärane üleminek: `150ms ease`;
+- klaviatuurifookus: `0 0 0 3px rgba(40,120,255,.24)`;
+- keelatud elemendi läbipaistvus: `0.62`;
+- dekoratiivse vahevöö kõrgus: `5rem`.
 
-Varju kasutatakse ainult kaardi hõljutusolekus. Nupud, sisendid, sildid, navigatsioon ja teated eristuvad piirjoone või taustavärviga.
+## 5. Lehe struktuur
 
-# Shapes
+Soovituslik avalehe järjekord:
 
-- Väike raadius on `6px`; seda kasutavad navigatsioonilingid.
-- Põhiraadius on `10px`; seda kasutavad sektsioonid, nupud, väljad, kaardid, navigatsioon ja teated.
-- Sildi raadius on `999px`.
-- Rajajoonel on `3px` joon, `round` jooneotsad ja täiteta SVG-rada.
-- Sektsiooni vasak aktsent on `3px × 40px`.
-- Sektsiooni parempoolne kõver on `128px × 32px`, `3px` ülemise piiriga, `50%` raadiusega, `-6deg` pöördega ja `0.22` läbipaistvusega.
-- Värvinäidise minimaalne kõrgus on `128px`; värvipinna kõrgus on `72px`.
-- Kaardi minimaalne kõrgus on `160px`.
+1. päis ja lehe nimi;
+2. hero-foto, pealkiri ja lühike väärtuspakkumine;
+3. treeningpaiga tüübi kiirfiltrid;
+4. objektikaardid;
+5. sama valikut kajastav kaardivaade;
+6. täiendavad otsingu- ja filtreerimisvõimalused;
+7. andmeallikas ja uuendamise kuupäev.
 
-# Components
+Lauavaates paiknevad objektikaardid ja asukohakaart kõrvuti suhtes ligikaudu 2 : 1. Kaartide ruudustikus võib olla kolm tulpa. Mobiilis muutub kogu sisu üheveeruliseks ja kaart paigutub tulemuste järele.
 
-## Buttons
+## 6. Komponendid
 
-Nupu minimaalne kõrgus on `44px`, sisevahe `12px 20px`, piir `1px` ja raadius `10px`.
+### 6.1 Nupud
 
-- Primary default: taust `#2878FF`, tekst `#FFFFFF`.
-- Primary hover: taust `#1765E8`.
-- Primary active: taust `#0E50C7`, vertikaalne nihe `1px`.
-- Secondary default: taust `#FFFFFF`, tekst ja piir `#2878FF`.
-- Secondary hover: taust `#E8F3FF`.
-- Secondary active: taust `#A9D8FF`, tekst `#173B57`, vertikaalne nihe `1px`.
-- Focus: `3px` fookuserõngas.
-- Disabled: taust `#EDF1F3`, tekst `#8C9AA5`, piir `#D8E0E5`, läbipaistvus `0.62`.
+Kõigi nuppude minimaalne kõrgus on 44 px, nurk 10 px ja tekst poolpaks.
 
-## Text input
+**Põhinupp**
 
-Sisendi minimaalne kõrgus on `44px`, sisevahe `12px 16px`, piir `1px` ja raadius `10px`. Töölaual on sisendvõrgu veeru minimaalne laius `352px`; kuni `704px` vaates täidab sisendväli üheveerulise konteineri kogu laiuse.
+- vaikimisi: sinine taust ja valge tekst;
+- hover: `#1765E8`;
+- active: `#0E50C7` ja 1 px allapoole liikumine;
+- focus: nähtav sinine fookusrõngas;
+- disabled: helehall taust, hall tekst, `not-allowed` kursor.
 
-- Default: pind `#FFFFFF`, piir `#D8E0E5`.
-- Hover: piir `#617485`.
-- Focus: piir `#2878FF` ja `3px` fookuserõngas.
-- Error: piir `#C53B45`, taust `#FFF0F1`.
-- Disabled: taust `#EDF1F3`, tekst `#8C9AA5`.
-- Abi- ja veateksti suurus on `14px`.
+**Teisene nupp**
 
-## Card
+- vaikimisi: valge taust, sinine tekst ja sinine piirjoon;
+- hover: `#E8F3FF` taust;
+- active: `#A9D8FF` taust ja tumesinine tekst;
+- focus ja disabled järgivad põhinupu reegleid.
 
-Kaardi minimaalne kõrgus on `160px`, sisevahe `20px`, piir `1px` ja raadius `10px`.
+### 6.2 Kiirfiltrid
 
-- Hover: piir `#2878FF` ja vari `0 10px 30px rgba(23, 59, 87, 0.08)`.
-- Selected: piir `#2878FF` ja vasakul `3px` sisemine aktsent.
-- Disabled: taust `#EDF1F3`, tekst `#8C9AA5`, läbipaistvus `0.62`.
+Kiirfilter on pillikujuline nupp, milles on alati ikoon ja tekst. Minimaalne kõrgus on 44 px.
 
-## Tag
+- vaikimisi: tumesinine tekst ja helesinine taust;
+- hover: sinine piirjoon;
+- valitud: sinine taust ja valge sisu;
+- ikoon peab kasutama `currentColor`, et olekud töötaksid automaatselt;
+- ära kasuta ainult ikooni ilma nähtava tekstisildita.
 
-Sildi minimaalne kõrgus on `28px`, sisevahe `4px 12px`, piir `1px`, raadius `999px`, teksti suurus `14px` ja kaal `600`.
+### 6.3 Sisendväljad
 
-- Default: taust `#E8F3FF`, piir `#A9D8FF`, tekst `#173B57`.
-- Hover: taust `#A9D8FF`.
-- Selected: taust ja piir `#2878FF`, tekst `#FFFFFF`.
-- Error: taust `#FFF0F1`, piir ja tekst `#C53B45`.
-- Disabled: taust `#EDF1F3`, piir `#D8E0E5`, tekst `#8C9AA5`, läbipaistvus `0.62`.
+Väli koosneb nähtavast sildist, sisendist ja vajadusel abi- või veatekstist.
 
-## Navigation
+- minimaalne kõrgus: 44 px;
+- taust: valge;
+- piirjoon: `#D8E0E5`;
+- hover: piirjoon muutub tumedamaks;
+- focus: sinine piirjoon ja fookusrõngas;
+- error: punane piirjoon, väga hele punane taust ja selgitav veatekst;
+- disabled: helehall taust ja hall tekst.
 
-Navigatsiooni välimine sisevahe ja elementide vahe on `8px`; taust `#F4F7F8`, piir `1px`, raadius `10px`. Lingi minimaalne kõrgus on `44px`, sisevahe `8px 16px`, raadius `6px`, teksti suurus `16px` ja kaal `500`.
+Placeholder ei asenda välja silti.
 
-- Hover: tekst `#2878FF`, taust `#FFFFFF`.
-- Focus: `3px` fookuserõngas.
-- Active: taust `#2878FF`, tekst `#FFFFFF`.
-- Disabled: tekst `#8C9AA5`, läbipaistvus `0.62`.
+### 6.4 Objektikaardid
 
-## Notice
+Objektikaart on tervikuna klikitav ja sisaldab:
 
-Teate sisevahe on `16px 20px`, üldpiir `1px`, vasak piir `3px` ja raadius `10px`. Pealkiri ja tekst on `16px`.
+1. päris fotot;
+2. objekti tüüpi ja piirkonda;
+3. objekti nime;
+4. aadressi;
+5. vajadusel pindala, põrandamaterjali ja muid olulisi omadusi.
 
-- Info: taust `#E8F3FF`, piir `#2878FF`.
-- Success: taust `#EAF7F1`, piir ja tekst `#187454`.
-- Warning: taust `#FFF7E5`, piir ja tekst `#8B5A10`.
-- Error: taust `#FFF0F1`, piir ja tekst `#C53B45`.
-- Disabled: taust `#EDF1F3`, piir `#D8E0E5`, tekst `#8C9AA5`, läbipaistvus `0.62`.
+Vaikimisi kasutatakse valget tausta, 1 px halli piirjoont ja 10 px nurki. Hover-olekus muutub piirjoon siniseks, lisandub õrn vari ja kaart liigub 2 px üles. Valitud kaart saab sinise piirjoone või vasakpoolse sinise rõhujoone. Keelatud kaart on hall ja väiksema läbipaistvusega.
 
-# Do's and Don'ts
+Pikkadel nimedel peab olema lubatud murduda mitmele reale. Nime täpsust ei tohi visuaalse mugavuse nimel kärpida.
 
-## Do
+### 6.5 Sildid
 
-- Kasuta lehe taustaks `#F4F7F8` ja sisupindadeks `#FFFFFF`.
-- Kasuta põhitekstiks `#173B57` ja interaktiivseks aktsendiks `#2878FF`.
-- Kasuta pealkirjades `Manrope 600` ning muus tekstis `Inter 400`, `500` või `600`.
-- Hoia kirjasuurused skaalal `14`, `16`, `18`, `20`, `26` ja `34px`.
-- Hoia vahed skaalal `0`, `4`, `8`, `12`, `16`, `20`, `24`, `32`, `40`, `48` ja `64px`.
-- Kasuta komponentidel `10px` põhiraadiust ja navigatsioonilinkidel `6px` raadiust.
-- Näita klaviatuurifookust `3px` sinise fookuserõngaga.
-- Kasuta liikumiseks `150ms ease` üleminekut ja vähenda see `0.01ms`-ni, kui kasutaja eelistab vähendatud liikumist.
-- Hoia rajamotiiv ühe `3px` paksuse lookleva sinise joonena.
-- Testi iga muudatust laiustel `320`, `360`, `390`, `412`, `704` ja `705px`.
-- Lase pikkadel nupu- ja kaarditekstidel murduda; hoia nende konteineritel `min-width: 0`.
-- Hoia kõik interaktiivsed nupud, sisendid ja navigatsioonilingid vähemalt `44px` kõrged.
+Sildid on kompaktsed pillid, mida kasutatakse piirkonna, objekti tüübi, põrandamaterjali või andmeoleku näitamiseks.
 
-## Don't
+- tekst: 14 px, kaal 600;
+- minimaalne kõrgus: 28 px;
+- vaikimisi: hele sinine taust ja helesinine piirjoon;
+- valitud: põhisinine taust ja valge tekst;
+- viga: punane tekst, helepunane taust ja punane piirjoon;
+- disabled: hall.
 
-- Ära lisa uusi aktsentvärve väljaspool dokumenteeritud HEX- ja RGBA-väärtusi.
-- Ära kasuta suuremat pealkirja kui `34px`.
-- Ära kasuta väiksemat põhiteksti kui `18px` ega väiksemat silti kui `14px`.
-- Ära lisa skaalaväliseid vahesid ega nurgaraadiusi.
-- Ära lisa rohkem kui ühte paralleelset rajajoont, rattamärke, rulluisuillustratsiooni ega ikoone.
-- Ära kasuta varju mujal kui kaardi hõljutusolekus.
-- Ära eemalda fookuserõngast ilma samaväärse `3px` nähtava asenduseta.
-- Ära kasuta keelatud olekus aktiivse oleku sinist tausta ega täisläbipaistmatust.
-- Ära kasuta mobiilis fikseeritud komponendilaiust, mis ületab konteineri laiuse.
-- Ära vähenda mobiilis teksti alla dokumenteeritud `14px` miinimumi.
-- Ära looda tegevuse selgitamisel ainult hõljutusolekule; puutevaates peab tegevus olema arusaadav ilma hover'ita.
+### 6.6 Navigatsioon
+
+Navigatsioon kasutab rahulikku heledat tausta ja ümardatud sisemisi linke.
+
+- hover: valge taust ja sinine tekst;
+- aktiivne leht: sinine taust ja valge tekst;
+- focus: nähtav fookusrõngas;
+- keelatud link eemaldatakse tab-järjekorrast ja märgitakse `aria-disabled="true"`.
+
+### 6.7 Teated
+
+Teatel on 3 px vasak rõhujoon, 10 px nurgad, tugev lühike pealkiri ja selgitav tekst.
+
+- info: sinine;
+- success: roheline;
+- warning: pruunikas-kollane;
+- error: punane ja vajadusel `role="alert"`;
+- disabled: hall.
+
+### 6.8 Kaardivaade
+
+Kaardivaade peab vastama samale aktiivsele filtrile ja valikule nagu objektikaardid. Markerid kasutavad põhisinist, valget äärist ja piisavat suurust. Kaardil peab olema ligipääsetav tekstiline nimetus või alternatiivne kirjeldus.
+
+## 7. Responsiivsus
+
+### Kuni 44rem / 704 px
+
+- lehe külgmine vahe: 16 px;
+- päise elemendid lähevad üksteise alla;
+- sektsiooni sisuvahe väheneb 24 × 16 px-ni;
+- kõik peamised ruudustikud muutuvad üheveeruliseks;
+- kiirfiltrid paiknevad kahe tulbana ja lähevad väga kitsal ekraanil ühte tulpa;
+- objektikaardi foto kõrgus on ligikaudu 12rem;
+- nupud täidavad rea laiuse;
+- navigatsioon muutub üheveeruliseks;
+- hero pealkiri kasutab `clamp(1.8rem, 9vw, 2.7rem)`;
+- hero kadreeringut kontrollitakse eraldi, et uisud ei kaoks ekraanilt.
+
+### Kuni 24rem / 384 px
+
+- lehe külgmine vahe: 12 px;
+- sektsiooni horisontaalne sisuvahe: 12 px;
+- filtrid lähevad ühte tulpa;
+- hero minimaalne kõrgus on 18rem ainult siis, kui sportlane jääb tervikuna nähtavaks; vajadusel suurenda kõrgust;
+- objektikaardi foto kõrgus on ligikaudu 10rem.
+
+## 8. Ligipääsetavus
+
+- Kõik tegevused peavad töötama klaviatuuriga.
+- Kasuta `:focus-visible` olekut; ära eemalda fookust ilma asenduseta.
+- Interaktiivse elemendi puuteala peab olema vähemalt 44 × 44 px.
+- Ikoonidel on nähtav tekstisilt; dekoratiivsed SVG-d saavad `aria-hidden="true"`.
+- Sisendväljal on alati programmiline ja nähtav silt.
+- Veateade seotakse väljaga `aria-describedby` abil ning vigane väli saab `aria-invalid="true"`.
+- Aktiivne navigatsioonilink kasutab `aria-current="page"`.
+- Kaart peab saama tekstilise alternatiivi.
+- Teksti ei asetata otse kirjule fotoalale ilma piisava kontrastkihita.
+- Animatsioonid ja üleminekud lülitatakse `prefers-reduced-motion: reduce` puhul sisuliselt välja.
+- Värv ei tohi olla ainus oleku või vea edasiandmise viis.
+
+## 9. Sisureeglid
+
+- Kasuta objektide ametlikke ja täpseid nimesid.
+- Objektikaardi pealkiri peab viitama konkreetsele saalile või sportimispaigale, mitte ainult hoonele, kui andmed seda võimaldavad.
+- Asukoht esitatakse ühtses järjekorras: tänav, asula või linnaosa, omavalitsus.
+- Näita andmeallikat ja andmete kuupäeva.
+- Kasuta lihtsat eesti keelt ning lühikesi tegevussõnu: „Vaata”, „Ava”, „Otsi”, „Vali”.
+- Väldi turunduslikku liialdamist ja ebamääraseid väiteid.
+
+## 10. Mida vältida
+
+- liigsed sinakas-lillad gradiendid;
+- suured helendavad varjud ja neoon;
+- klaasjad läbipaistvad kaardid;
+- igal sektsioonil eri värvi taust;
+- juhuslikud dekoratiivsed ikoonid;
+- liiga suured pillikujulised konteinerid;
+- ümarad nurgad kõikjal ja ilma hierarhiata;
+- kaartide ülemäärane hõljumine;
+- fotode agressiivne tumendamine või värvimine;
+- hero-foto kärpimine viisil, mis lõikab uisutaja kleidi või uisud ära;
+- sinise rajajoone paigutamine teksti või nupu peale;
+- automaatselt genereeritud välimusega abstraktsed taustakujundid.
+
+## 11. Rakendusreeglid AI-agentidele ja arendajatele
+
+Uue vaate või komponendi loomisel:
+
+1. kasuta olemasolevaid tokeneid, ära lisa peaaegu samasugust uut sinist või vahet;
+2. eelista semantilist HTML-i (`header`, `main`, `nav`, `section`, `article`, `aside`);
+3. rakenda kõigile interaktiivsetele komponentidele vähemalt vaikimisi, hover-, focus-, active- ja disabled-olek, kui need on asjakohased;
+4. kontrolli tulemust vähemalt laiustel 1440 px, 768 px, 390 px ja 320 px;
+5. testi pikki eestikeelseid objekti- ja aadressinimesid;
+6. ära paiguta olulist sisu ainult fotole või kaardile;
+7. säilita maksimaalne sisulaius 1216 px ja 4 px vahede alusvõrk;
+8. kasuta rajajoont säästlikult — üks tugev visuaalne joon vaate kohta on tavaliselt piisav;
+9. hero-foto puhul kontrolli alati visuaalselt, et uisutaja kleit ja uisud oleksid nähtavad;
+10. rajajoone parempoolne osa peab uisutaja juures olema väga hele ja õrn.
+
+## 12. CSS-i lähteplokk
+
+```css
+:root {
+  --font-heading: "Manrope", "Arial", sans-serif;
+  --font-body: "Inter", "Arial", sans-serif;
+
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.625rem;
+  --text-2xl: 2.125rem;
+  --line-tight: 1.2;
+  --line-normal: 1.6;
+
+  --color-ink: #173B57;
+  --color-primary: #2878FF;
+  --color-primary-hover: #1765E8;
+  --color-primary-active: #0E50C7;
+  --color-primary-soft: #E8F3FF;
+  --color-accent-soft: #A9D8FF;
+  --color-canvas: #F4F7F8;
+  --color-surface: #FFFFFF;
+  --color-border: #D8E0E5;
+  --color-muted: #617485;
+  --color-error: #C53B45;
+  --color-success: #187454;
+  --color-warning: #8B5A10;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-pill: 999px;
+  --control-height: 2.75rem;
+  --content-width: 76rem;
+  --focus-ring: 0 0 0 0.1875rem rgba(40, 120, 255, 0.24);
+  --shadow-card: 0 0.625rem 1.875rem rgba(23, 59, 87, 0.08);
+  --transition-fast: 150ms ease;
+}
+```
+
+---
+
+Lähtefail: `stardikomplekt(1).html`. Dokument kajastab lähtefaili disainisüsteemi ning hilisemaid täpsustusi hero-foto kadreeringu ja paremale väga heledaks hajuva rajajoone kohta.

@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rajajoon — stardikomplekt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-heading: "Manrope", "Arial", sans-serif;
+      --font-body: "Inter", "Arial", sans-serif;
+
+      --text-xs: 0.875rem;
+      --text-sm: 1rem;
+      --text-md: 1.125rem;
+      --text-lg: 1.25rem;
+      --text-xl: 1.625rem;
+      --text-2xl: 2.125rem;
+      --line-tight: 1.2;
+      --line-normal: 1.6;
+      --weight-regular: 400;
+      --weight-medium: 500;
+      --weight-semibold: 600;
+
+      --color-ink: #173B57;
+      --color-primary: #2878FF;
+      --color-primary-hover: #1765E8;
+      --color-primary-active: #0E50C7;
+      --color-primary-soft: #E8F3FF;
+      --color-accent-soft: #A9D8FF;
+      --color-canvas: #F4F7F8;
+      --color-surface: #FFFFFF;
+      --color-border: #D8E0E5;
+      --color-muted: #617485;
+      --color-disabled-bg: #EDF1F3;
+      --color-disabled-text: #8C9AA5;
+      --color-error: #C53B45;
+      --color-error-soft: #FFF0F1;
+      --color-success: #187454;
+      --color-success-soft: #EAF7F1;
+      --color-warning: #8B5A10;
+      --color-warning-soft: #FFF7E5;
+      --color-focus: #2878FF;
+      --color-overlay: rgba(23, 59, 87, 0.08);
+
+      --space-0: 0;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.625rem;
+      --radius-pill: 999px;
+      --border-thin: 1px;
+      --border-strong: 2px;
+      --control-height: 2.75rem;
+      --content-width: 76rem;
+      --line-width: 0.1875rem;
+      --focus-ring: 0 0 0 0.1875rem rgba(40, 120, 255, 0.24);
+      --shadow-card: 0 0.625rem 1.875rem rgba(23, 59, 87, 0.08);
+      --transition-fast: 150ms ease;
+      --opacity-disabled: 0.62;
+      --opacity-route-soft: 0.22;
+      --opacity-route-strong: 0.9;
+      --route-band-height: 5rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { color-scheme: light; }
+
+    body {
+      margin: var(--space-0);
+      background: var(--color-canvas);
+      color: var(--color-ink);
+      font-family: var(--font-body);
+      font-size: var(--text-md);
+      line-height: var(--line-normal);
+    }
+
+    button, input { font: inherit; }
+
+    button, a, input { transition: border-color var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast); }
+    button, a { touch-action: manipulation; }
+
+    .site-header {
+      position: relative;
+      overflow: hidden;
+      background: var(--color-surface);
+      border-bottom: var(--border-thin) solid var(--color-border);
+    }
+
+    .header-inner, main {
+      width: min(calc(100% - (var(--space-6) * 2)), var(--content-width));
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: var(--space-8);
+      padding-block: var(--space-8);
+    }
+
+    .route-line {
+      position: absolute;
+      inset-inline: var(--space-0);
+      pointer-events: none;
+    }
+
+    .route-line svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .route-line path {
+      fill: none;
+      stroke: var(--color-primary);
+      stroke-linecap: round;
+      stroke-width: var(--line-width);
+      vector-effect: non-scaling-stroke;
+    }
+
+    .route-line-header {
+      bottom: var(--space-2);
+      height: var(--space-10);
+      opacity: var(--opacity-route-strong);
+    }
+
+    .route-band {
+      position: relative;
+      height: var(--route-band-height);
+      overflow: hidden;
+      background: var(--color-primary-soft);
+      border-bottom: var(--border-thin) solid var(--color-border);
+    }
+
+    .route-line-band {
+      inset-block: var(--space-0);
+      opacity: var(--opacity-route-strong);
+    }
+
+    .eyebrow, .state-label {
+      margin: var(--space-0);
+      color: var(--color-muted);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: var(--space-0); }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: var(--weight-semibold);
+      line-height: var(--line-tight);
+    }
+
+    h1 { margin-bottom: var(--space-2); font-size: var(--text-2xl); }
+    h2 { margin-bottom: var(--space-6); font-size: var(--text-xl); }
+    h3 { margin-bottom: var(--space-2); font-size: var(--text-lg); }
+    p { margin-bottom: var(--space-4); }
+
+    .header-meta { max-width: 30rem; margin-bottom: var(--space-0); color: var(--color-muted); font-size: var(--text-sm); }
+
+    main { padding-block: var(--space-12) var(--space-16); }
+
+    .section {
+      position: relative;
+      margin-bottom: var(--space-12);
+      padding: var(--space-8);
+      background: var(--color-surface);
+      border: var(--border-thin) solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+
+    .section::before {
+      position: absolute;
+      top: var(--space-8);
+      left: calc(var(--line-width) * -1);
+      width: var(--line-width);
+      height: var(--space-10);
+      background: var(--color-primary);
+      content: "";
+    }
+
+    .section::after {
+      position: absolute;
+      top: var(--space-6);
+      right: var(--space-6);
+      width: 8rem;
+      height: var(--space-8);
+      border-top: var(--line-width) solid var(--color-primary);
+      border-radius: 50%;
+      content: "";
+      opacity: var(--opacity-route-soft);
+      pointer-events: none;
+      transform: rotate(-6deg);
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: var(--space-4); }
+    .component-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: var(--space-6); align-items: start; }
+    .input-grid { grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); }
+    .stack { display: grid; gap: var(--space-3); align-content: start; }
+    .state-example { display: grid; gap: var(--space-2); }
+
+    .swatch { min-height: 8rem; overflow: hidden; border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); }
+    .swatch-color { height: 4.5rem; background: var(--swatch); }
+    .swatch-meta { display: flex; justify-content: space-between; gap: var(--space-3); padding: var(--space-3); background: var(--color-surface); font-size: var(--text-xs); }
+    .swatch-meta span:last-child { color: var(--color-muted); }
+
+    .type-sample { padding-bottom: var(--space-4); border-bottom: var(--border-thin) solid var(--color-border); }
+    .type-sample:last-child { padding-bottom: var(--space-0); border-bottom: var(--space-0); }
+    .type-sample p { margin-bottom: var(--space-1); }
+    .type-meta { color: var(--color-muted); font-size: var(--text-xs); }
+    .type-heading { font-family: var(--font-heading); font-size: var(--text-2xl); font-weight: var(--weight-semibold); line-height: var(--line-tight); }
+    .type-lead { font-size: var(--text-lg); }
+    .type-body { font-size: var(--text-md); }
+    .type-small { font-size: var(--text-sm); }
+    .type-label { font-size: var(--text-xs); font-weight: var(--weight-semibold); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .button {
+      min-height: var(--control-height);
+      padding: var(--space-3) var(--space-5);
+      border: var(--border-thin) solid transparent;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-weight: var(--weight-semibold);
+    }
+
+    .button-primary { background: var(--color-primary); color: var(--color-surface); }
+    .button-primary:hover, .button-primary.is-hover { background: var(--color-primary-hover); }
+    .button-primary:active, .button-primary.is-active { background: var(--color-primary-active); transform: translateY(var(--border-thin)); }
+    .button-secondary { background: var(--color-surface); color: var(--color-primary); border-color: var(--color-primary); }
+    .button-secondary:hover, .button-secondary.is-hover { background: var(--color-primary-soft); }
+    .button-secondary:active, .button-secondary.is-active { background: var(--color-accent-soft); color: var(--color-ink); transform: translateY(var(--border-thin)); }
+    .button:focus-visible, .button.is-focus { outline: none; box-shadow: var(--focus-ring); }
+    .button:disabled, .button.is-disabled { background: var(--color-disabled-bg); color: var(--color-disabled-text); border-color: var(--color-border); cursor: not-allowed; opacity: var(--opacity-disabled); transform: none; box-shadow: none; }
+
+    .field { display: grid; gap: var(--space-2); }
+    .field-label { font-size: var(--text-sm); font-weight: var(--weight-semibold); }
+    .field-input { width: 100%; min-height: var(--control-height); padding: var(--space-3) var(--space-4); color: var(--color-ink); background: var(--color-surface); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); outline: none; }
+    .field-input::placeholder { color: var(--color-muted); }
+    .field-input:hover, .field-input.is-hover { border-color: var(--color-muted); }
+    .field-input:focus, .field-input.is-focus { border-color: var(--color-focus); box-shadow: var(--focus-ring); }
+    .field-input[aria-invalid="true"] { border-color: var(--color-error); background: var(--color-error-soft); }
+    .field-input:disabled { background: var(--color-disabled-bg); color: var(--color-disabled-text); cursor: not-allowed; }
+    .field-help { margin: var(--space-0); color: var(--color-muted); font-size: var(--text-xs); }
+    .field-error { margin: var(--space-0); color: var(--color-error); font-size: var(--text-xs); font-weight: var(--weight-medium); }
+
+    .card { min-height: 10rem; padding: var(--space-5); background: var(--color-surface); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); }
+    .card p { margin-bottom: var(--space-0); color: var(--color-muted); font-size: var(--text-sm); }
+    .card .card-detail { margin-top: var(--space-3); color: var(--color-ink); font-weight: var(--weight-medium); }
+    .card:hover, .card.is-hover { border-color: var(--color-primary); box-shadow: var(--shadow-card); }
+    .card.is-selected { border-color: var(--color-primary); box-shadow: inset var(--line-width) 0 0 var(--color-primary); }
+    .card.is-disabled { background: var(--color-disabled-bg); color: var(--color-disabled-text); opacity: var(--opacity-disabled); }
+    .card.is-disabled p { color: var(--color-disabled-text); }
+
+    .tag { display: inline-flex; align-items: center; width: fit-content; min-height: 1.75rem; padding: var(--space-1) var(--space-3); color: var(--color-ink); background: var(--color-primary-soft); border: var(--border-thin) solid var(--color-accent-soft); border-radius: var(--radius-pill); font-size: var(--text-xs); font-weight: var(--weight-semibold); }
+    .tag:hover, .tag.is-hover { background: var(--color-accent-soft); }
+    .tag.is-selected { color: var(--color-surface); background: var(--color-primary); border-color: var(--color-primary); }
+    .tag.is-error { color: var(--color-error); background: var(--color-error-soft); border-color: var(--color-error); }
+    .tag.is-disabled { color: var(--color-disabled-text); background: var(--color-disabled-bg); border-color: var(--color-border); opacity: var(--opacity-disabled); }
+
+    .nav { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-2); background: var(--color-canvas); border: var(--border-thin) solid var(--color-border); border-radius: var(--radius-md); }
+    .nav-link { display: inline-flex; min-height: var(--control-height); align-items: center; padding: var(--space-2) var(--space-4); color: var(--color-ink); border-radius: var(--radius-sm); text-decoration: none; font-size: var(--text-sm); font-weight: var(--weight-medium); }
+    .nav-link:hover, .nav-link.is-hover { color: var(--color-primary); background: var(--color-surface); }
+    .nav-link:focus-visible, .nav-link.is-focus { outline: none; box-shadow: var(--focus-ring); }
+    .nav-link[aria-current="page"], .nav-link.is-active { color: var(--color-surface); background: var(--color-primary); }
+    .nav-link[aria-disabled="true"] { color: var(--color-disabled-text); cursor: not-allowed; opacity: var(--opacity-disabled); }
+
+    .notice { padding: var(--space-4) var(--space-5); border: var(--border-thin) solid var(--color-border); border-left-width: var(--line-width); border-radius: var(--radius-md); }
+    .notice strong { display: block; margin-bottom: var(--space-1); font-size: var(--text-sm); }
+    .notice p { margin-bottom: var(--space-0); font-size: var(--text-sm); }
+    .notice-info { background: var(--color-primary-soft); border-color: var(--color-primary); }
+    .notice-success { color: var(--color-success); background: var(--color-success-soft); border-color: var(--color-success); }
+    .notice-warning { color: var(--color-warning); background: var(--color-warning-soft); border-color: var(--color-warning); }
+    .notice-error { color: var(--color-error); background: var(--color-error-soft); border-color: var(--color-error); }
+    .notice-disabled { color: var(--color-disabled-text); background: var(--color-disabled-bg); border-color: var(--color-border); opacity: var(--opacity-disabled); }
+
+    @media (max-width: 44rem) {
+      .header-inner, main { width: calc(100% - (var(--space-4) * 2)); }
+      .header-inner { align-items: start; flex-direction: column; gap: var(--space-4); padding-block: var(--space-6); }
+      .header-meta { max-width: none; }
+      .route-band { height: var(--space-16); }
+      main { padding-block: var(--space-8) var(--space-12); }
+      .section { margin-bottom: var(--space-8); padding: var(--space-6) var(--space-4); }
+      .section::before { top: var(--space-6); height: var(--space-8); }
+      .section::after { top: var(--space-5); right: var(--space-4); width: calc(var(--space-16) + var(--space-8)); height: var(--space-6); }
+      .grid, .component-grid { grid-template-columns: minmax(0, 1fr); }
+      .component-grid { gap: var(--space-8); }
+      .field, .stack, .state-example, .card, .notice { min-width: 0; }
+      .button { width: 100%; padding-inline: var(--space-4); white-space: normal; overflow-wrap: anywhere; }
+      .field-input { min-width: 0; }
+      .card h3, .card p, .notice strong, .notice p, .field-help, .field-error { overflow-wrap: anywhere; }
+      .nav { display: grid; grid-template-columns: minmax(0, 1fr); }
+      .nav-link { width: 100%; justify-content: flex-start; }
+    }
+
+    @media (max-width: 24rem) {
+      .header-inner, main { width: calc(100% - (var(--space-3) * 2)); }
+      .section { padding-inline: var(--space-3); }
+      .notice { padding-inline: var(--space-4); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">Spordiobjektide otsing</p>
+        <h1>Rajajoon</h1>
+      </div>
+      <p class="header-meta">Harjumaa ja Tallinna võimlad ning spordisaalid</p>
+    </div>
+    <div class="route-line route-line-header" aria-hidden="true">
+      <svg viewBox="0 0 1200 48" preserveAspectRatio="none" focusable="false">
+        <path d="M-40 34 C 120 4, 250 46, 410 20 S 720 8, 880 30 S 1080 42, 1240 8"></path>
+      </svg>
+    </div>
+  </header>
+
+  <div class="route-band" aria-hidden="true">
+    <div class="route-line route-line-band">
+      <svg viewBox="0 0 1200 80" preserveAspectRatio="none" focusable="false">
+        <path d="M-30 62 C 110 72, 150 12, 300 20 S 520 78, 680 50 S 820 4, 960 22 S 1110 70, 1230 36"></path>
+      </svg>
+    </div>
+  </div>
+
+  <main>
+    <section class="section" aria-labelledby="palette-title">
+      <h2 id="palette-title">Värvipalett</h2>
+      <div class="grid">
+        <div class="swatch"><div class="swatch-color" style="--swatch: var(--color-ink)"></div><div class="swatch-meta"><span>Tint</span><span>#173B57</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="--swatch: var(--color-primary)"></div><div class="swatch-meta"><span>Põhisinine</span><span>#2878FF</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="--swatch: var(--color-accent-soft)"></div><div class="swatch-meta"><span>Helesinine</span><span>#A9D8FF</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="--swatch: var(--color-canvas)"></div><div class="swatch-meta"><span>Taust</span><span>#F4F7F8</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="--swatch: var(--color-surface)"></div><div class="swatch-meta"><span>Pind</span><span>#FFFFFF</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="--swatch: var(--color-border)"></div><div class="swatch-meta"><span>Piirjoon</span><span>#D8E0E5</span></div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="type-title">
+      <h2 id="type-title">Kirjade skaala</h2>
+      <div class="stack">
+        <div class="type-sample"><p class="type-heading">Leia sobiv spordisaal</p><span class="type-meta">Manrope 600 · 34 px</span></div>
+        <div class="type-sample"><p class="type-lead">Harjumaa ja Tallinna spordiobjektid</p><span class="type-meta">Inter 400 · 20 px</span></div>
+        <div class="type-sample"><p class="type-body">Võrdle spordisaalide asukohti, põrandamaterjale ja pindala.</p><span class="type-meta">Inter 400 · 18 px</span></div>
+        <div class="type-sample"><p class="type-small">Andmed: Eesti spordiregister, 16.09.2026</p><span class="type-meta">Inter 400 · 16 px</span></div>
+        <div class="type-sample"><p class="type-label">Tallinn</p><span class="type-meta">Inter 600 · 14 px</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="buttons-title">
+      <h2 id="buttons-title">Nupud</h2>
+      <div class="component-grid">
+        <div class="stack">
+          <p class="state-label">Põhinupp</p>
+          <div class="state-example"><span class="state-label">Vaikimisi</span><button class="button button-primary">Vaata kõiki Tallinna ja Harjumaa spordiobjekte</button></div>
+          <div class="state-example"><span class="state-label">Hõljutus</span><button class="button button-primary is-hover">Vaata kõiki Tallinna ja Harjumaa spordiobjekte</button></div>
+          <div class="state-example"><span class="state-label">Fookus</span><button class="button button-primary is-focus">Vaata kõiki Tallinna ja Harjumaa spordiobjekte</button></div>
+          <div class="state-example"><span class="state-label">Aktiivne</span><button class="button button-primary is-active">Vaata kõiki Tallinna ja Harjumaa spordiobjekte</button></div>
+          <div class="state-example"><span class="state-label">Keelatud</span><button class="button button-primary" disabled>Vaata kõiki Tallinna ja Harjumaa spordiobjekte</button></div>
+        </div>
+        <div class="stack">
+          <p class="state-label">Teisene nupp</p>
+          <div class="state-example"><span class="state-label">Vaikimisi</span><button class="button button-secondary">Ava objekt Eesti spordiregistris</button></div>
+          <div class="state-example"><span class="state-label">Hõljutus</span><button class="button button-secondary is-hover">Ava objekt Eesti spordiregistris</button></div>
+          <div class="state-example"><span class="state-label">Fookus</span><button class="button button-secondary is-focus">Ava objekt Eesti spordiregistris</button></div>
+          <div class="state-example"><span class="state-label">Aktiivne</span><button class="button button-secondary is-active">Ava objekt Eesti spordiregistris</button></div>
+          <div class="state-example"><span class="state-label">Keelatud</span><button class="button button-secondary" disabled>Ava objekt Eesti spordiregistris</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="inputs-title">
+      <h2 id="inputs-title">Sisendväli</h2>
+      <div class="component-grid input-grid">
+        <label class="field"><span class="field-label">Otsi nime järgi</span><input class="field-input" type="text" placeholder="Näiteks Jüri Spordihoone"><span class="field-help">Sisesta spordiobjekti täielik või osaline nimi.</span></label>
+        <label class="field"><span class="field-label">Valitud objekt</span><input class="field-input is-hover" type="text" value="Järveküla Spordihoone"><span class="field-help">Reti tee 20, Peetri alevik</span></label>
+        <label class="field"><span class="field-label">Otsi aadressi järgi</span><input class="field-input is-focus" type="text" value="Läänemere tee 31"><span class="field-help">Tallinn, Lasnamäe linnaosa</span></label>
+        <label class="field"><span class="field-label">Piirkond</span><input class="field-input" type="text" value="Tartu" aria-invalid="true" aria-describedby="field-error"><span class="field-error" id="field-error">Vali piirkonnaks Tallinn või mõni Harjumaa omavalitsus.</span></label>
+        <label class="field"><span class="field-label">Andmete ulatus</span><input class="field-input" type="text" value="Tallinn ja Harjumaa" disabled><span class="field-help">Piirkond on andmefailiga määratud.</span></label>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cards-title">
+      <h2 id="cards-title">Kaart</h2>
+      <div class="component-grid">
+        <div class="state-example"><span class="state-label">Vaikimisi</span><article class="card"><h3>Tallinna Kesklinna Vene Gümnaasiumi Juhkentali tn spordisaalid</h3><p>Juhkentali tn 36, Kesklinna linnaosa, Tallinn</p><p class="card-detail">Spordisaal · 295,2 m² · puit</p></article></div>
+        <div class="state-example"><span class="state-label">Hõljutus</span><article class="card is-hover"><h3>Tallinna Kesklinna Vene Gümnaasiumi Juhkentali tn spordisaalid</h3><p>Juhkentali tn 36, Kesklinna linnaosa, Tallinn</p><p class="card-detail">Spordisaal · 295,2 m² · puit</p></article></div>
+        <div class="state-example"><span class="state-label">Valitud</span><article class="card is-selected"><h3>Tallinna Kesklinna Vene Gümnaasiumi Juhkentali tn spordisaalid</h3><p>Juhkentali tn 36, Kesklinna linnaosa, Tallinn</p><p class="card-detail">Spordisaal · 295,2 m² · puit</p></article></div>
+        <div class="state-example"><span class="state-label">Keelatud</span><article class="card is-disabled" aria-disabled="true"><h3>Tallinna Kesklinna Vene Gümnaasiumi Juhkentali tn spordisaalid</h3><p>Juhkentali tn 36, Kesklinna linnaosa, Tallinn</p><p class="card-detail">Spordisaal · 295,2 m² · puit</p></article></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tags-title">
+      <h2 id="tags-title">Silt</h2>
+      <div class="component-grid">
+        <div class="stack"><p class="state-label">Vaikimisi</p><span class="tag">Harjumaa</span></div>
+        <div class="stack"><p class="state-label">Hõljutus</p><span class="tag is-hover">Puitpõrand</span></div>
+        <div class="stack"><p class="state-label">Valitud</p><span class="tag is-selected">Spordisaal</span></div>
+        <div class="stack"><p class="state-label">Viga</p><span class="tag is-error">Pindala puudub</span></div>
+        <div class="stack"><p class="state-label">Keelatud</p><span class="tag is-disabled">PVC-põrand</span></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nav-title">
+      <h2 id="nav-title">Navigatsioon</h2>
+      <nav class="nav" aria-label="Komponendi olekud">
+        <a class="nav-link" href="#cards-title">Kõik objektid</a>
+        <a class="nav-link is-hover" href="#cards-title">Harjumaa</a>
+        <a class="nav-link is-focus" href="#inputs-title">Otsing</a>
+        <a class="nav-link" href="#cards-title" aria-current="page">Tallinn</a>
+        <a class="nav-link" href="#palette-title" aria-disabled="true" tabindex="-1">Põrandamaterjalid</a>
+      </nav>
+    </section>
+
+    <section class="section" aria-labelledby="notices-title">
+      <h2 id="notices-title">Teade</h2>
+      <div class="stack">
+        <div class="notice notice-info" role="status"><strong>Andmestik</strong><p>Valikus on 300 unikaalset spordiobjekti Tallinnast ja Harjumaalt.</p></div>
+        <div class="notice notice-success" role="status"><strong>Andmed laaditud</strong><p>Andmestikus on 604 sportimispaiga kirjet.</p></div>
+        <div class="notice notice-warning" role="status"><strong>Pindala puudub</strong><p>20 sportimispaiga kirjel ei ole pindala märgitud.</p></div>
+        <div class="notice notice-error" role="alert"><strong>Objekti ei leitud</strong><p>Selle nime või aadressiga spordiobjekti andmestikus ei ole.</p></div>
+        <div class="notice notice-disabled" aria-disabled="true"><strong>Teavitused on välja lülitatud</strong><p>Andmete muutumisest ei saadeta praegu teadet.</p></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

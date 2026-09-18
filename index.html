@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Harjumaa treeningpaikade filterdatav register rulluisutajatele.">
-  <title>Treeningpaigad rullitajatele</title>
+  <title>Trennipaigad Tallinnas ja Harjumaal rullitajatele</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600&display=swap" rel="stylesheet">
@@ -36,16 +36,16 @@
   </style>
 </head>
 <body>
-  <section class="hero" aria-labelledby="pageTitle"><div class="shell hero-content"><div class="hero-copy"><h1 id="pageTitle">Treeningpaigad rullitajatele</h1></div></div><div class="route" aria-hidden="true"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M-30 62C110 72 150 12 300 20S520 78 680 50S820 4 960 22S1110 70 1230 36"/></svg></div></section>
+  <section class="hero" aria-labelledby="pageTitle"><div class="shell hero-content"><div class="hero-copy"><h1 id="pageTitle">Trennipaigad Tallinnas ja Harjumaal rullitajatele</h1></div></div><div class="route" aria-hidden="true"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M-30 62C110 72 150 12 300 20S520 78 680 50S820 4 960 22S1110 70 1230 36"/></svg></div></section>
   <main class="shell"><div class="workspace">
     <aside class="panel filters" aria-label="Filtrid"><div class="filters-head"><h2>Filtrid</h2><button class="clear" id="clearFilters" type="button">Tühjenda</button></div><div class="filter-stack">
       <div class="field"><label for="search">Otsi nime või aadressi järgi</label><input class="control" id="search" type="search" placeholder="Näiteks Jüri või Reti tee"></div>
       <div class="field"><label for="municipalitySelect">Omavalitsus</label><details class="multi-select" id="municipalitySelect"><summary id="municipalitySummary">Kõik omavalitsused</summary><div class="multi-options" id="municipalityOptions"></div></details></div>
-      <div class="field"><label for="placeType">Sportimispaiga liik</label><select class="control" id="placeType"><option value="">Kõik liigid</option></select></div>
+      <div class="field"><label for="placeType">Trennipaiga liik</label><select class="control" id="placeType"><option value="">Kõik liigid</option></select></div>
       <fieldset class="field floor-field"><legend>Põrandamaterjal / väliala</legend><label class="check floor-quick"><input id="woodFloorQuick" type="checkbox"><span>Puitparkett, puit või laudpõrand</span></label><div class="floor-options" id="floorOptions"></div></fieldset>
       <div class="field"><label for="minArea">Minimaalne pindala (m²)</label><input class="control" id="minArea" type="number" min="0" step="10" placeholder="Näiteks 300"></div>
     </div></aside>
-    <section class="results" aria-labelledby="resultsTitle"><div class="toolbar"><div class="summary"><h2 id="resultsTitle">Leia sobiv treeningpaik</h2><p id="resultCount" aria-live="polite"></p><p class="results-meta"><strong>Andmete allikas:</strong> <a href="https://www.spordiregister.ee/et/ehitis/list" target="_blank" rel="noopener">Eesti spordiregister</a> · <strong>Andmete seis:</strong> 17.09.2026</p></div></div><div class="active-filters" id="activeFilters"></div><div class="cards" id="cards"></div><nav class="pagination" id="pagination" aria-label="Tulemuste leheküljed"></nav></section>
+    <section class="results" aria-labelledby="resultsTitle"><div class="toolbar"><div class="summary"><h2 id="resultsTitle">Leia sobiv trennipaik</h2><p id="resultCount" aria-live="polite"></p><p class="results-meta"><strong>Andmete allikas:</strong> <a href="https://www.spordiregister.ee/et/ehitis/list" target="_blank" rel="noopener">Eesti spordiregister</a> · <strong>Andmete seis:</strong> 17.09.2026</p></div></div><div class="active-filters" id="activeFilters"></div><div class="cards" id="cards"></div><nav class="pagination" id="pagination" aria-label="Tulemuste leheküljed"></nav></section>
   </div></main>
   <footer class="shell data-source"><p><strong>Andmete allikas:</strong> <a href="https://www.spordiregister.ee/et/ehitis/list" target="_blank" rel="noopener">Eesti spordiregister</a> · <strong>Andmete seis:</strong> 17.09.2026 · <strong>Vaibkoodis Tiia Tammisaar</strong></p></footer>
   <script src="fotod/fotod.js"></script>
